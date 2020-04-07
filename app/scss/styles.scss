@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import 'variables';
+@import 'menu';
+
+
+* {
+    margin: 0;
+}
+
+body {
+    background-color: $contrast-color;
+    font-family: $default-font;
+    color: #000;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: $contrast-color;
+
+    &:hover {
+        color: $light-color;
+        transition: 0.3s;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: minmax(120px, 200px) minmax(240px, 1fr) 80px;
+    grid-template-rows: auto 1fr auto auto;
+    box-shadow: 0 0 4px 0 #000;
+    //kontener
+    min-height: 100vh;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.logo {
+    grid-area: 1/1/2/2;
+    background-color: $main-color;
+    height: 80px;
+
+    &__img {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+.search {
+    grid-area: 1/2/2/3;
+    background-color: $main-color;
+
+    &__input,
+    &__btn {
+        border-radius: 5px;
+        height: 40%;
+        min-height: 20px;
+        border: 1px solid #fff;
+        margin: 25px 30px;
+    }
+
+    &__input {
+        padding: 0 10px;
+        width: 40%;
+
+        &:focus {
+            box-shadow: 0 0 2px 1px #000;
+        }
+    }
+
+    &__btn {
+        padding: 5px 10px;
+        color: #fff;
+        width: 20%;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-left: 2vh;
+        background-color: $contrast-color;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $secondary-color;
+            color: #fff;
+            border: 1px solid #fff;
+            transition: 0.3s;
+        }
+    }
+}
+
+.menu {
+    grid-area: 1/-1/2/-2;
+    background-color: $main-color;
+
+}
+
+.gallery {
+    grid-area: 2/1/3/-1;
+    background-color: $light-color;
+
+    //kontener
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+    gap: 15px;
+    padding: 15px;
+    align-content: center;
+
+    &__image {
+        width: 100%;
+        border: 1px solid $tertiary-color;
+        border-radius: 5px;
+    }
+
+    &__headline {
+        grid-area: 1/1/2/-1;
+        width: 100%;
+        text-align: center;
+        color: $contrast-color;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        top: 30px;
+        left: 0;
+    }
+}
+
+.contact {
+    grid-area: 3/1/4/4;
+    height: 60px;
+    background-color: $secondary-color;
+
+    &__info {
+        padding: 20px 0;
+        color: #fff;
+        text-align: center;
+    }
+}
+
+.footer {
+    background-color: $main-color;
+    grid-area: 4/1/5/4;
+    height: 40px;
+    text-align: center;
+
+    &__icon-link {
+        margin: 10px;
+        font-size: 20px;
+
+        i {
+            padding: 10px;
+        }
+    }
+}

@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+/* Based on CSS fold-out menu
+ * Made by Erik Terwan
+ * 24th of November 2015
+ * MIT License
+ */
+#menuToggle {
+  display: block;
+  position: relative;
+  margin: 28px 25px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none; }
+
+#menuToggle a {
+  text-decoration: none;
+  color: #232323;
+  transition: color 0.3s ease; }
+
+#menuToggle a:hover {
+  color: #F25260; }
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  -webkit-touch-callout: none; }
+
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background-color: #F25260;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background-color 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease; }
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%; }
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%; }
+
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #F29A2E; }
+
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2); }
+
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px); }
+
+#menu {
+  position: absolute;
+  width: 300px;
+  margin: -60px -345px;
+  padding: 50px;
+  padding-top: 125px;
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(0, -400px);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1); }
+
+#menu li {
+  padding: 10px 0;
+  font-size: 20px; }
+
+#menuToggle input:checked ~ ul {
+  transform: none; }
+
+* {
+  margin: 0; }
+
+body {
+  background-color: #F25260;
+  font-family: "Raleway", Arial, Helvetica, sans-serif;
+  color: #000;
+  font-size: 16px; }
+
+a {
+  text-decoration: none;
+  color: #F25260; }
+  a:hover {
+    color: #B0E3F5;
+    transition: 0.3s; }
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(120px, 200px) minmax(240px, 1fr) 80px;
+  grid-template-rows: auto 1fr auto auto;
+  box-shadow: 0 0 4px 0 #000;
+  min-height: 100vh;
+  max-width: 1240px;
+  margin: 0 auto; }
+
+.logo {
+  grid-area: 1/1/2/2;
+  background-color: #FFCB3C;
+  height: 80px; }
+  .logo__img {
+    width: 100%;
+    margin: 0 auto; }
+
+.search {
+  grid-area: 1/2/2/3;
+  background-color: #FFCB3C; }
+  .search__input, .search__btn {
+    border-radius: 5px;
+    height: 40%;
+    min-height: 20px;
+    border: 1px solid #fff;
+    margin: 25px 30px; }
+  .search__input {
+    padding: 0 10px;
+    width: 40%; }
+    .search__input:focus {
+      box-shadow: 0 0 2px 1px #000; }
+  .search__btn {
+    padding: 5px 10px;
+    color: #fff;
+    width: 20%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 2vh;
+    background-color: #F25260;
+    cursor: pointer; }
+    .search__btn:hover {
+      background-color: #F29A2E;
+      color: #fff;
+      border: 1px solid #fff;
+      transition: 0.3s; }
+
+.menu {
+  grid-area: 1/-1/2/-2;
+  background-color: #FFCB3C; }
+
+.gallery {
+  grid-area: 2/1/3/-1;
+  background-color: #B0E3F5;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+  gap: 15px;
+  padding: 15px;
+  align-content: center; }
+  .gallery__image {
+    width: 100%;
+    border: 1px solid #F27F3D;
+    border-radius: 5px; }
+  .gallery__headline {
+    grid-area: 1/1/2/-1;
+    width: 100%;
+    text-align: center;
+    color: #F25260;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    top: 30px;
+    left: 0; }
+
+.contact {
+  grid-area: 3/1/4/4;
+  height: 60px;
+  background-color: #F29A2E; }
+  .contact__info {
+    padding: 20px 0;
+    color: #fff;
+    text-align: center; }
+
+.footer {
+  background-color: #FFCB3C;
+  grid-area: 4/1/5/4;
+  height: 40px;
+  text-align: center; }
+  .footer__icon-link {
+    margin: 10px;
+    font-size: 20px; }
+    .footer__icon-link i {
+      padding: 10px; }
